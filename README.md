@@ -27,7 +27,7 @@ testCompile 'io.selendroid:selendroid-standalone:0.17.0'
 testCompile 'io.selendroid:selendroid-client:0.17.0'
 ```
 
-rename the ‘main’ folder under your test module to ‘test’.
+rename the ‘main’ folder under your test module to ‘test’ and start writing your test under that!
 
 ##Making the first test!##
 
@@ -43,7 +43,7 @@ public class ExampleUnitTest {
             selendroidServer.stopSelendroid();
         }
         SelendroidConfiguration config = new SelendroidConfiguration();
-        config.addSupportedApp("app-debug.apk");  // TODO
+        config.addSupportedApp("app-debug.apk");
         selendroidServer = new SelendroidLauncher(config);
         selendroidServer.launchSelendroid();
 
@@ -102,5 +102,26 @@ public class ExampleUnitTest {
         }
     }
 }
+
 ```
+
+```
+@BeforeClass
+```
+This method runs only once at the start.
+
+``` AfterClass```
+This method runs only once after all the tests are completed```
+
+```@Before```
+This method runs before every test and will run as many times as the number of the test in the Class
+
+To find elements in your layout, you should use
+        '''Java
+        WebElement inputField = driver.findElement(By.id("editText"));
+        '''
+You can find elements by id, by Class name, by Link text, by Css selector,By name, By partial Link Text, By tag name or By Xpath.
+
+
+
 
