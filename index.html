@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="file:/Users/deepanshpahwa/Library/Application%20Support/AndroidStudio1.5/gfm-plugin/css/github-fff66249e57e12b5b264967f6a4d21f8923d59247f86c4419d1e3092660fe54b.css">
@@ -74,7 +73,7 @@ In the gradle file of that module</p>
 <span class="hljs-built_in">test</span>Compile <span class="hljs-string">'io.selendroid:selendroid-client:0.17.0'</span>
 </code></pre>
 
-<p>rename the ‘main’ folder under your test module to ‘test’.</p>
+<p>rename the ‘main’ folder under your test module to ‘test’ and start writing your test under that!</p>
 
 <h2>Making the first test!</h2>
 
@@ -89,7 +88,7 @@ In the gradle file of that module</p>
             selendroidServer.stopSelendroid();
         }
         SelendroidConfiguration config = <span class="hljs-keyword">new</span> SelendroidConfiguration();
-        config.addSupportedApp(<span class="hljs-string">"app-debug.apk"</span>);  <span class="hljs-comment">// TODO</span>
+        config.addSupportedApp(<span class="hljs-string">"app-debug.apk"</span>);
         selendroidServer = <span class="hljs-keyword">new</span> SelendroidLauncher(config);
         selendroidServer.launchSelendroid();
 
@@ -148,6 +147,28 @@ In the gradle file of that module</p>
         }
     }
 }
+
+</code></pre>
+
+<pre><code class="hljs scala"><span class="hljs-annotation">@BeforeClass</span>
+</code></pre>
+
+<p>This method runs only once at the start.</p>
+
+<pre lang="AfterClass```"><code class="hljs nimrod"><span class="hljs-type">This</span> <span class="hljs-keyword">method</span> runs only once after all the tests are completed```
+
+```@<span class="hljs-type">Before</span>```
+<span class="hljs-type">This</span> <span class="hljs-keyword">method</span> runs before every test <span class="hljs-keyword">and</span> will run <span class="hljs-keyword">as</span> many times <span class="hljs-keyword">as</span> the number <span class="hljs-keyword">of</span> the test <span class="hljs-keyword">in</span> the <span class="hljs-type">Class</span>
+
+<span class="hljs-type">To</span> find elements <span class="hljs-keyword">in</span> your layout, you should use
+        '''<span class="hljs-type">Java</span>
+        <span class="hljs-type">WebElement</span> inputField = driver.findElement(<span class="hljs-type">By</span>.id(<span class="hljs-string">"editText"</span>));
+        '''
+<span class="hljs-type">You</span> can find elements by id, by <span class="hljs-type">Class</span> name, by <span class="hljs-type">Link</span> text, by <span class="hljs-type">Css</span> selector,<span class="hljs-type">By</span> name, <span class="hljs-type">By</span> partial <span class="hljs-type">Link</span> <span class="hljs-type">Text</span>, <span class="hljs-type">By</span> tag name <span class="hljs-keyword">or</span> <span class="hljs-type">By</span> <span class="hljs-type">Xpath</span>.
+
+
+
+
 </code></pre>
 </div>
                     </div>
