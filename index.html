@@ -1,1 +1,160 @@
-Harpreet Pahwa is stupid
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="file:/Users/deepanshpahwa/Library/Application%20Support/AndroidStudio1.5/gfm-plugin/css/github-fff66249e57e12b5b264967f6a4d21f8923d59247f86c4419d1e3092660fe54b.css">
+    <link rel="stylesheet" href="file:/Users/deepanshpahwa/Library/Application%20Support/AndroidStudio1.5/gfm-plugin/css/github2-ade0148a562b52311cf36a8e5f019126eb5ef7054bf2a0463ea00c536a358d33.css">
+    <style id="css-fixes">
+        .repository-with-sidebar .repository-content {
+            float: left;
+        }
+        #readme {
+        width: 790px;
+        }
+        .container{
+            margin:0px;
+            margin-right:0px;
+            margin-left:0px;
+        width: 790px;
+        }
+        html{
+            margin: 20px;
+        }
+        body{
+        min-width: 0px;
+        width: 100%
+        }
+        .repository-with-sidebar.with-full-navigation .repository-content {
+        width: 790px;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="file:/Users/deepanshpahwa/Library/Application%20Support/AndroidStudio1.5/gfm-plugin/css/highlightjs8_8_0/github.css">
+    <script src="file:/Users/deepanshpahwa/Library/Application%20Support/AndroidStudio1.5/gfm-plugin/css/highlightjs8_8_0/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="page">
+    <div class="preview-page">
+        <div class="container">
+            <div class="repository-with-sidebar repo-container with-full-navigation">
+                <div class="repository-content context-loader-container">
+                    <div id="readme" class="boxed-group flush clearfix announce instapaper_body md">
+                        <h3>
+                            <span class="octicon octicon-book"></span>
+                            <span id="title">README.md</span>
+                        </h3>
+
+                        <div class="markdown-body entry-content"><h1>deepanshpahwa.github.io</h1>
+
+<h2>What is it?</h2>
+
+<p>Selendroid is a test automation framework which drives off the UI of Android
+native and hybrid applications (apps) and the mobile web. Tests are written
+using the Selenium 2 client API - that's it!
+Selendroid can be used on emulators and real devices and can be integrated as
+a node into the Selenium Grid for scaling and parallel testing.
+The documentation specifies how to install and use Selendroid itself. The use
+of Selendroid requires knowledge about how to use Selenium. The official
+documentation of the WebDriver client API can be found <a href="http://docs.seleniumhq.org/docs/03_webdriver.jsp">here</a>.</p>
+
+<h2>How to add it in your Android Studio Project?</h2>
+
+<p>Working with Android studio 1.5.1 (with gradle)</p>
+
+<p>Permissions required:</p>
+
+<pre lang="xml"><code class="hljs groovy">&lt;uses-permission <span class="hljs-string">android:</span>name=<span class="hljs-string">"android.**permission.INTERNET"</span>/&gt;
+</code></pre>
+
+<p>Make a new module and choose 'java library for testing'.
+In the gradle file of that module</p>
+
+<pre lang="Gradle"><code class="hljs bash"><span class="hljs-built_in">test</span>Compile <span class="hljs-string">'junit:junit:4.12'</span>
+<span class="hljs-built_in">test</span>Compile <span class="hljs-string">'io.selendroid:selendroid-standalone:0.17.0'</span>
+<span class="hljs-built_in">test</span>Compile <span class="hljs-string">'io.selendroid:selendroid-client:0.17.0'</span>
+</code></pre>
+
+<p>rename the ‘main’ folder under your test module to ‘test’.</p>
+
+<h2>Making the first test!</h2>
+
+<pre lang="Java"><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExampleUnitTest</span> </span>{
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> SelendroidLauncher selendroidServer = <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> SelendroidDriver driver = <span class="hljs-keyword">null</span>;
+
+    <span class="hljs-annotation">@BeforeClass</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">startSelendroidServer</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>{
+        <span class="hljs-keyword">if</span> (selendroidServer != <span class="hljs-keyword">null</span>) {
+            selendroidServer.stopSelendroid();
+        }
+        SelendroidConfiguration config = <span class="hljs-keyword">new</span> SelendroidConfiguration();
+        config.addSupportedApp(<span class="hljs-string">"app-debug.apk"</span>);  <span class="hljs-comment">// TODO</span>
+        selendroidServer = <span class="hljs-keyword">new</span> SelendroidLauncher(config);
+        selendroidServer.launchSelendroid();
+
+        SelendroidCapabilities capa = SelendroidCapabilities.emulator(<span class="hljs-string">"com.madebyatomicrobot.web:1.0"</span>);
+        capa.setLaunchActivity(<span class="hljs-string">"com.madebyatomicrobot.web.MainActivity"</span>);
+
+        driver = <span class="hljs-keyword">new</span> SelendroidDriver(capa);
+    }
+
+    <span class="hljs-annotation">@AfterClass</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">stopSelendroidServer</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">if</span> (driver != <span class="hljs-keyword">null</span>) {
+            driver.quit();
+        }
+        <span class="hljs-keyword">if</span> (selendroidServer != <span class="hljs-keyword">null</span>) {
+            selendroidServer.stopSelendroid();
+        }
+    }
+
+    <span class="hljs-annotation">@Before</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
+        driver.switchTo().window(<span class="hljs-string">"NATIVE_APP"</span>);
+    }
+
+    <span class="hljs-annotation">@Ignore</span>
+    <span class="hljs-annotation">@Test</span>
+    <span class="hljs-comment">//SAMPLE test with google.com:WORKS FINE</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testShouldBeAbleToEnterText</span><span class="hljs-params">()</span> </span>{
+
+        WebElement inputField = driver.findElement(By.id(<span class="hljs-string">"editText"</span>));
+        WebElement button = driver.findElement(By.id(<span class="hljs-string">"button"</span>));
+        WebElement textView = driver.findElement(By.id(<span class="hljs-string">"textView"</span>));
+
+        inputField.clear();
+        inputField.sendKeys(<span class="hljs-string">"Hello World"</span>);
+        <span class="hljs-comment">//waitFor(pageTitleToBe(driver(), "We Arrive Here"), 15, TimeUnit.SECONDS))</span>
+
+        button.sendKeys(<span class="hljs-string">"  "</span>);
+        hideKeyboard();
+
+
+        String text = textView.getText().toString();
+        Assert.assertEquals(text, <span class="hljs-string">"Hello World"</span>);
+
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">hideKeyboard</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">new</span> Actions(driver).sendKeys(SelendroidKeys.BACK).perform();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delay</span><span class="hljs-params">(<span class="hljs-keyword">int</span> seconds)</span> </span>{
+        <span class="hljs-keyword">long</span> end3 = System.currentTimeMillis()+(seconds*<span class="hljs-number">1000</span>);
+        <span class="hljs-keyword">while</span>(System.currentTimeMillis()&lt;end3)
+        {
+
+        }
+    }
+}
+</code></pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>&nbsp;</div>
+</div>
+
+</body></html>
