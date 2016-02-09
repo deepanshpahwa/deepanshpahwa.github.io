@@ -1,4 +1,4 @@
-# deepanshpahwa.github.io
+# Selendroid
 
 ##What is it?##
 Selendroid is a test automation framework which drives off the UI of Android
