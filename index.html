@@ -163,8 +163,29 @@ You can find elements by id, by Class name, by Link text, by Css selector,By nam
 
 <h2>Errors</h2>
 
-<p>If you are getting errors like these repeatedly:
-<img src="https://raw.githubusercontent.com/madebyatomicrobot/Evaluation-Selendroid/master/app/Permission_error.png?token=AP-9g9fTefBgeXlbY6Q2sfpx_53-F4yIks5Ww0tJwA%3D%3D" alt="Image of Error"></p>
+<p>If you are getting errors like these repeatedly:</p>
+
+<pre><code class="hljs smali">Feb 09, 2016 11:56:47 AM io.selendroid.standalone.android.impl.AbstractDevice isSelendroidRunning
+INFO: Checking<span class="hljs-instruction"> if </span>the Selendroid server is running: http://localhost:8080/wd/hub/status
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec<span class="hljs-instruction"> execute
+</span>INFO: I/O exception<span class="hljs-function"> (</span>org.apache.http.NoHttpResponseException<span class="hljs-function">)</span> caught when processing request to {}-&gt;http://localhost:8080: The target server failed to respond
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec<span class="hljs-instruction"> execute
+</span>INFO: Retrying request to {}-&gt;http://localhost:8080
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec<span class="hljs-instruction"> execute
+</span>INFO: I/O exception<span class="hljs-function"> (</span>org.apache.http.NoHttpResponseException<span class="hljs-function">)</span> caught when processing request to {}-&gt;http://localhost:8080: The target server failed to respond
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec<span class="hljs-instruction"> execute
+</span>INFO: Retrying request to {}-&gt;http://localhost:8080
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec<span class="hljs-instruction"> execute
+</span>INFO: I/O exception<span class="hljs-function"> (</span>org.apache.http.NoHttpResponseException<span class="hljs-function">)</span> caught when processing request to {}-&gt;http://localhost:8080: The target server failed to respond
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec<span class="hljs-instruction"> execute
+</span>INFO: Retrying request to {}-&gt;http://localhost:8080
+Feb 09, 2016 11:56:47 AM io.selendroid.standalone.android.impl.AbstractDevice isSelendroidRunning
+INFO: Can't connect to Selendroid server, assuming it is<span class="hljs-instruction"> not </span>running.
+Feb 09, 2016 11:56:49 AM io.selendroid.standalone.io.ShellCommand exec
+INFO: Executing shell command: <span class="hljs-keyword">[</span>/Users/deepanshpahwa/Library/Android/sdk/platform-tools/adb, -s, emulator-5554, shell, echo, $EXTERNAL_STORAGE]
+Feb 09, 2016 11:56:49 AM io.selendroid.standalone.io.ShellCommand exec
+INFO: Shell command output
+</code></pre>
 
 <p>Then you havent added the internet permission.</p>
 </div>

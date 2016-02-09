@@ -119,9 +119,28 @@ You can find elements by id, by Class name, by Link text, by Css selector,By nam
 ## Errors##
 
 If you are getting errors like these repeatedly:
-![Image of Error]
-(https://raw.githubusercontent.com/madebyatomicrobot/Evaluation-Selendroid/master/app/Permission_error.png?token=AP-9g9fTefBgeXlbY6Q2sfpx_53-F4yIks5Ww0tJwA%3D%3D)
-
+```
+Feb 09, 2016 11:56:47 AM io.selendroid.standalone.android.impl.AbstractDevice isSelendroidRunning
+INFO: Checking if the Selendroid server is running: http://localhost:8080/wd/hub/status
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec execute
+INFO: I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:8080: The target server failed to respond
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec execute
+INFO: Retrying request to {}->http://localhost:8080
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec execute
+INFO: I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:8080: The target server failed to respond
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec execute
+INFO: Retrying request to {}->http://localhost:8080
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec execute
+INFO: I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:8080: The target server failed to respond
+Feb 09, 2016 11:56:47 AM org.apache.http.impl.execchain.RetryExec execute
+INFO: Retrying request to {}->http://localhost:8080
+Feb 09, 2016 11:56:47 AM io.selendroid.standalone.android.impl.AbstractDevice isSelendroidRunning
+INFO: Can't connect to Selendroid server, assuming it is not running.
+Feb 09, 2016 11:56:49 AM io.selendroid.standalone.io.ShellCommand exec
+INFO: Executing shell command: [/Users/deepanshpahwa/Library/Android/sdk/platform-tools/adb, -s, emulator-5554, shell, echo, $EXTERNAL_STORAGE]
+Feb 09, 2016 11:56:49 AM io.selendroid.standalone.io.ShellCommand exec
+INFO: Shell command output
+```
 Then you havent added the internet permission.
 
 
