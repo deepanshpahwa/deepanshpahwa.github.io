@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="file:/Users/deepanshpahwa/Library/Application%20Support/AndroidStudio1.5/gfm-plugin/css/github-fff66249e57e12b5b264967f6a4d21f8923d59247f86c4419d1e3092660fe54b.css">
@@ -26,7 +25,7 @@
         .repository-with-sidebar.with-full-navigation .repository-content {
         width: 790px;
         }
-
+        
     </style>
     <link rel="stylesheet" href="file:/Users/deepanshpahwa/Library/Application%20Support/AndroidStudio1.5/gfm-plugin/css/highlightjs8_8_0/github.css">
     <script src="file:/Users/deepanshpahwa/Library/Application%20Support/AndroidStudio1.5/gfm-plugin/css/highlightjs8_8_0/highlight.pack.js"></script>
@@ -44,7 +43,7 @@
                             <span id="title">README.md</span>
                         </h3>
 
-                        <div class="markdown-body entry-content"><h1>Selendroid</h1>
+                        <div class="markdown-body entry-content"><h1>deepanshpahwa.github.io</h1>
 
 <h2>What is it?</h2>
 
@@ -93,7 +92,7 @@ In the gradle file of that module</p>
         selendroidServer = <span class="hljs-keyword">new</span> SelendroidLauncher(config);
         selendroidServer.launchSelendroid();
 
-        SelendroidCapabilities capa = SelendroidCapabilities.emulator(<span class="hljs-string">"com.madebyatomicrobot.web:1.0"</span>);
+        SelendroidCapabilities capa = SelendroidCapabilities.emulator(<span class="hljs-string">"com.madebyatomicrobot.web:1.0"</span>); <span class="hljs-comment">// change from 'emulator' to 'device' if running on device</span>
         capa.setLaunchActivity(<span class="hljs-string">"com.madebyatomicrobot.web.MainActivity"</span>);
 
         driver = <span class="hljs-keyword">new</span> SelendroidDriver(capa);
@@ -109,14 +108,7 @@ In the gradle file of that module</p>
         }
     }
 
-    <span class="hljs-annotation">@Before</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setup</span><span class="hljs-params">()</span> </span>{
-        driver.switchTo().window(<span class="hljs-string">"NATIVE_APP"</span>);
-    }
-
-    <span class="hljs-annotation">@Ignore</span>
     <span class="hljs-annotation">@Test</span>
-    <span class="hljs-comment">//SAMPLE test with google.com:WORKS FINE</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testShouldBeAbleToEnterText</span><span class="hljs-params">()</span> </span>{
 
         WebElement inputField = driver.findElement(By.id(<span class="hljs-string">"editText"</span>));
@@ -125,11 +117,10 @@ In the gradle file of that module</p>
 
         inputField.clear();
         inputField.sendKeys(<span class="hljs-string">"Hello World"</span>);
-        <span class="hljs-comment">//waitFor(pageTitleToBe(driver(), "We Arrive Here"), 15, TimeUnit.SECONDS))</span>
 
-        button.sendKeys(<span class="hljs-string">"  "</span>);
+        button.click();
+
         hideKeyboard();
-
 
         String text = textView.getText().toString();
         Assert.assertEquals(text, <span class="hljs-string">"Hello World"</span>);
@@ -139,38 +130,43 @@ In the gradle file of that module</p>
     <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">hideKeyboard</span><span class="hljs-params">()</span> </span>{
         <span class="hljs-keyword">new</span> Actions(driver).sendKeys(SelendroidKeys.BACK).perform();
     }
-
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">delay</span><span class="hljs-params">(<span class="hljs-keyword">int</span> seconds)</span> </span>{
-        <span class="hljs-keyword">long</span> end3 = System.currentTimeMillis()+(seconds*<span class="hljs-number">1000</span>);
-        <span class="hljs-keyword">while</span>(System.currentTimeMillis()&lt;end3)
-        {
-
-        }
-    }
 }
-
 </code></pre>
+
+<h2>Used methods:</h2>
+
+<p>This method must be there before all the tests:</p>
+
+<pre><code class="hljs scala"><span class="hljs-annotation">@Test</span>
+</code></pre>
+
+<p>This method runs only once at the start:</p>
 
 <pre><code class="hljs scala"><span class="hljs-annotation">@BeforeClass</span>
 </code></pre>
 
-<p>This method runs only once at the start.</p>
+<p>This method runs only once after all the tests are completed:</p>
 
-<pre lang="AfterClass```"><code class="hljs nimrod"><span class="hljs-type">This</span> <span class="hljs-keyword">method</span> runs only once after all the tests are completed```
-
-```@<span class="hljs-type">Before</span>```
-<span class="hljs-type">This</span> <span class="hljs-keyword">method</span> runs before every test <span class="hljs-keyword">and</span> will run <span class="hljs-keyword">as</span> many times <span class="hljs-keyword">as</span> the number <span class="hljs-keyword">of</span> the test <span class="hljs-keyword">in</span> the <span class="hljs-type">Class</span>
-
-<span class="hljs-type">To</span> find elements <span class="hljs-keyword">in</span> your layout, you should use
-        '''<span class="hljs-type">Java</span>
-        <span class="hljs-type">WebElement</span> inputField = driver.findElement(<span class="hljs-type">By</span>.id(<span class="hljs-string">"editText"</span>));
-        '''
-<span class="hljs-type">You</span> can find elements by id, by <span class="hljs-type">Class</span> name, by <span class="hljs-type">Link</span> text, by <span class="hljs-type">Css</span> selector,<span class="hljs-type">By</span> name, <span class="hljs-type">By</span> partial <span class="hljs-type">Link</span> <span class="hljs-type">Text</span>, <span class="hljs-type">By</span> tag name <span class="hljs-keyword">or</span> <span class="hljs-type">By</span> <span class="hljs-type">Xpath</span>.
-
-
-
-
+<pre><code class="hljs scala"><span class="hljs-annotation">@AfterClass</span>
 </code></pre>
+
+<p>This method runs before every test and will run as many times as the number of the test in the Class:</p>
+
+<pre><code class="hljs scala"><span class="hljs-annotation">@Before</span>
+</code></pre>
+
+<p>To find elements in your layout, you should use
+        '''Java
+        WebElement inputField = driver.findElement(By.id("editText"));
+        '''
+You can find elements by id, by Class name, by Link text, by Css selector,By name, By partial Link Text, By tag name or By Xpath.</p>
+
+<h2>Errors</h2>
+
+<p>If you are getting errors like these repeatedly:
+<img src="https://raw.githubusercontent.com/madebyatomicrobot/Evaluation-Selendroid/master/app/Permission_error.png?token=AP-9g9fTefBgeXlbY6Q2sfpx_53-F4yIks5Ww0tJwA%3D%3D" alt="Image of Error"></p>
+
+<p>Then you havent added the internet permission.</p>
 </div>
                     </div>
                 </div>

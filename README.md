@@ -47,7 +47,7 @@ public class ExampleUnitTest {
         selendroidServer = new SelendroidLauncher(config);
         selendroidServer.launchSelendroid();
 
-        SelendroidCapabilities capa = SelendroidCapabilities.emulator("com.madebyatomicrobot.web:1.0");
+        SelendroidCapabilities capa = SelendroidCapabilities.emulator("com.madebyatomicrobot.web:1.0"); // change from 'emulator' to 'device' if running on device
         capa.setLaunchActivity("com.madebyatomicrobot.web.MainActivity");
 
         driver = new SelendroidDriver(capa);
@@ -63,14 +63,7 @@ public class ExampleUnitTest {
         }
     }
 
-    @Before
-    public void setup() {
-        driver.switchTo().window("NATIVE_APP");
-    }
-
-    @Ignore
     @Test
-    //SAMPLE test with google.com:WORKS FINE
     public void testShouldBeAbleToEnterText() {
 
         WebElement inputField = driver.findElement(By.id("editText"));
@@ -79,11 +72,10 @@ public class ExampleUnitTest {
 
         inputField.clear();
         inputField.sendKeys("Hello World");
-        //waitFor(pageTitleToBe(driver(), "We Arrive Here"), 15, TimeUnit.SECONDS))
 
-        button.sendKeys("  ");
+        button.click();
+        
         hideKeyboard();
-
 
         String text = textView.getText().toString();
         Assert.assertEquals(text, "Hello World");
@@ -93,28 +85,30 @@ public class ExampleUnitTest {
     private void hideKeyboard() {
         new Actions(driver).sendKeys(SelendroidKeys.BACK).perform();
     }
-
-    private void delay(int seconds) {
-        long end3 = System.currentTimeMillis()+(seconds*1000);
-        while(System.currentTimeMillis()<end3)
-        {
-
-        }
-    }
 }
+```
+##Used methods:##
+
+This method must be there before all the tests:
 
 ```
+@Test
+```
+This method runs only once at the start:
 
 ```
 @BeforeClass
 ```
-This method runs only once at the start.
+This method runs only once after all the tests are completed:
 
-``` AfterClass```
-This method runs only once after all the tests are completed```
+```
+@AfterClass
+```
+This method runs before every test and will run as many times as the number of the test in the Class:
 
-```@Before```
-This method runs before every test and will run as many times as the number of the test in the Class
+```
+@Before
+```
 
 To find elements in your layout, you should use
         '''Java
@@ -122,6 +116,12 @@ To find elements in your layout, you should use
         '''
 You can find elements by id, by Class name, by Link text, by Css selector,By name, By partial Link Text, By tag name or By Xpath.
 
+## Errors##
 
+If you are getting errors like these repeatedly:
+![Image of Error]
+(https://raw.githubusercontent.com/madebyatomicrobot/Evaluation-Selendroid/master/app/Permission_error.png?token=AP-9g9fTefBgeXlbY6Q2sfpx_53-F4yIks5Ww0tJwA%3D%3D)
+
+Then you havent added the internet permission.
 
 
