@@ -26,6 +26,9 @@ testCompile 'junit:junit:4.12'
 testCompile 'io.selendroid:selendroid-standalone:0.17.0'
 testCompile 'io.selendroid:selendroid-client:0.17.0'
 ```
+To test you app, you'll have to make a copy of the .apk file in the test module.
+Every time you make a change in you application, you'll have to replace the .apk file in the testing module.
+PS: Don't forget to uninstall the application from the device/emulator before running the test if you've made changes.
 
 rename the ‘main’ folder under your test module to ‘test’ and start writing your test under that!
 
