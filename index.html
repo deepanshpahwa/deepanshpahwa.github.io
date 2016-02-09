@@ -58,26 +58,31 @@ documentation of the WebDriver client API can be found <a href="http://docs.sele
 
 <h2>How to add it in your Android Studio Project?</h2>
 
-<p>Working with Android studio 1.5.1 (with gradle)</p>
+<p><em>Working with Android studio 1.5.1 (with gradle)</em></p>
 
-<p>Permissions required:</p>
+<ol>
+<li>Add these permissions to your manifest file.</li>
+</ol>
 
 <pre lang="xml"><code class="hljs groovy">&lt;uses-permission <span class="hljs-string">android:</span>name=<span class="hljs-string">"android.**permission.INTERNET"</span>/&gt;
 </code></pre>
 
-<p>Make a new module and choose 'java library for testing'.
-In the gradle file of that module</p>
+<ol>
+<li><p>Make a new module and choose 'java library for testing'.</p></li>
+<li><p>In the gradle file of that module, add these lines in the dependencies bracket:</p></li>
+</ol>
 
 <pre lang="Gradle"><code class="hljs bash"><span class="hljs-built_in">test</span>Compile <span class="hljs-string">'junit:junit:4.12'</span>
 <span class="hljs-built_in">test</span>Compile <span class="hljs-string">'io.selendroid:selendroid-standalone:0.17.0'</span>
 <span class="hljs-built_in">test</span>Compile <span class="hljs-string">'io.selendroid:selendroid-client:0.17.0'</span>
 </code></pre>
 
-<p>To test you app, you'll have to make a copy of the .apk file in the test module.
+<ol>
+<li><p>Rename the ‘main’ folder under your test module to ‘test’ and start writing your test under that!</p></li>
+<li><p>To test you app, you'll have to make a copy of the .apk file in the test module.
 Every time you make a change in you application, you'll have to replace the .apk file in the testing module.
-PS: Don't forget to uninstall the application from the device/emulator before running the test if you've made changes.</p>
-
-<p>rename the ‘main’ folder under your test module to ‘test’ and start writing your test under that!</p>
+PS: Don't forget to uninstall the application from the device/emulator before running the test if you've made changes.</p></li>
+</ol>
 
 <h2>Making the first test!</h2>
 

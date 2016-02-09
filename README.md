@@ -12,25 +12,27 @@ documentation of the WebDriver client API can be found [here](http://docs.seleni
 
 
 ##How to add it in your Android Studio Project?##
-Working with Android studio 1.5.1 (with gradle)
+_Working with Android studio 1.5.1 (with gradle)_
 
-Permissions required:
+1. Add these permissions to your manifest file.
 ```xml
 <uses-permission android:name="android.**permission.INTERNET"/>
 ```
 
-Make a new module and choose 'java library for testing'.
-In the gradle file of that module
+2. Make a new module and choose 'java library for testing'.
+
+3. In the gradle file of that module, add these lines in the dependencies bracket:
 ```Gradle
 testCompile 'junit:junit:4.12'
 testCompile 'io.selendroid:selendroid-standalone:0.17.0'
 testCompile 'io.selendroid:selendroid-client:0.17.0'
 ```
-To test you app, you'll have to make a copy of the .apk file in the test module.
+
+4. Rename the ‘main’ folder under your test module to ‘test’ and start writing your test under that!
+
+5. To test you app, you'll have to make a copy of the .apk file in the test module.
 Every time you make a change in you application, you'll have to replace the .apk file in the testing module.
 PS: Don't forget to uninstall the application from the device/emulator before running the test if you've made changes.
-
-rename the ‘main’ folder under your test module to ‘test’ and start writing your test under that!
 
 ##Making the first test!##
 
